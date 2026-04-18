@@ -1,0 +1,42 @@
+narrative_event = {
+	id = ATV.90
+	title = EVTTITLEATV2502601
+	desc = EVTDESCATV2502601
+	hide_new = yes
+
+	picture = GFX_evt_hippodrome_byzantine
+	
+	only_playable = yes
+	hide_from = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTAATV2502601
+		trigger = {
+			OR = { 
+				society_member_of = warrior_lodge_jacobinist
+				religion = jacobinist
+				secret_religion = jacobinist
+				can_join_society = warrior_lodge_jacobinist
+			}
+		}
+		if = {
+			limit = { 
+				NOT = { society_member_of = warrior_lodge_jacobinist }
+				can_join_society = warrior_lodge_jacobinist
+			}
+			join_society = warrior_lodge_jacobinist
+		}
+	}
+	option = {
+		name = EVTOPTBATV2502601
+		trigger = {
+			NOR = { 
+				society_member_of = warrior_lodge_jacobinist
+				religion = jacobinist
+				secret_religion = jacobinist
+			}
+		}
+	}
+}	

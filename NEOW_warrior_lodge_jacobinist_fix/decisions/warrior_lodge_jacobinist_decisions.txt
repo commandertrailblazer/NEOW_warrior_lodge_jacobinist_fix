@@ -1,0 +1,83 @@
+	create_warrior_lodge_jacobinist = {
+		only_playable = yes
+		is_high_prio = yes
+		ai_check_interval = 120 #check only once every 120 months.
+		
+		potential = {
+			NOT = {
+				has_global_flag = flag_restored_warrior_lodge_jacobinist
+			}
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+			has_dlc = "Holy Fury"
+			age = 16
+			religion = jacobinist
+			NOT = { 
+				warrior_lodge_jacobinist = {
+					society_has_members = yes								
+				}
+			}
+		}
+		
+		allow = {
+			is_in_society = no
+			NOT = { trait = incapable }
+			has_education_martial_trigger = yes
+			higher_tier_than = DUKE
+			martial = 15
+			is_inaccessible_trigger = no
+			scaled_wealth = 0.75
+			prestige = 1500
+		}
+		
+		effect = {
+			scaled_wealth = -0.75
+			prestige = -1500
+			custom_tooltip = { text = create_warrior_lodge_jacobinist_tooltip }
+			hidden_tooltip = {
+				set_global_flag = flag_created_warrior_lodge_jacobinist 
+				join_society = warrior_lodge_jacobinist
+				set_society_grandmaster = yes # Set character as Grand Master
+				add_society_currency_massive_effect = yes
+					spawn_good_commander_effect = yes
+					new_character = { join_society = warrior_lodge_jacobinist }
+					spawn_good_commander_effect = yes
+					new_character = { join_society = warrior_lodge_jacobinist }
+					spawn_good_commander_effect = yes
+					new_character = { join_society = warrior_lodge_jacobinist }
+					spawn_good_commander_effect = yes
+					new_character = { join_society = warrior_lodge_jacobinist }
+					spawn_good_commander_effect = yes
+					new_character = { join_society = warrior_lodge_jacobinist }
+					spawn_good_commander_effect = yes
+					new_character = { join_society = warrior_lodge_jacobinist }
+				any_vassal = {
+					limit = {
+						ai = yes
+						can_join_society = warrior_lodge_jacobinist
+					}
+					random = { chance = 75 join_society = warrior_lodge_jacobinist }
+				}
+				any_neighbor_independent_ruler = {
+					limit = {
+						ai = yes
+						can_join_society = warrior_lodge_jacobinist
+					}
+					random = { chance = 35 join_society = warrior_lodge_jacobinist }
+				}
+				any_player = {
+					limit = {
+						religion = jacobinist
+					}
+					narrative_event = { id = ATV.90 }
+				}
+			}
+		}
+		
+		
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
