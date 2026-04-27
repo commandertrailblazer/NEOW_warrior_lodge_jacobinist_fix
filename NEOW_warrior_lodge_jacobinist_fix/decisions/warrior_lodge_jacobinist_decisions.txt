@@ -1,3 +1,4 @@
+decisions = {
 	create_warrior_lodge_jacobinist = {
 		only_playable = yes
 		is_high_prio = yes
@@ -81,3 +82,4 @@
 			factor = 1
 		}
 	}
+}
